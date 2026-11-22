@@ -98,7 +98,7 @@ export default function Hero() {
   ]
 
   return (
-    <section id="hero" className="relative min-h-screen flex flex-col items-center justify-center px-6 sm:px-8 overflow-hidden">
+    <section id="hero" className="relative min-h-screen flex flex-col items-center justify-center px-6 sm:px-8 pt-24 sm:pt-0 overflow-hidden">
       {/* Background image */}
       <div className="absolute inset-0">
         <img src={bgImage} alt="" className="w-full h-full object-cover" />

@@ -26,10 +26,30 @@ function Card({ edu }) {
   )
 }
 
-function TimelineCard({ edu, index, isInView }) {
+{/* Mobile: spine on the left, all cards on the right */}
+function MobileTimelineCard({ edu, index, isInView }) {
+  return (
+    <div className="relative grid grid-cols-[auto_1fr] gap-5">
+      {/* Spine + dot */}
+      <div className="flex flex-col items-center">
+        <motion.div initial={{ scale: 0 }} animate={isInView ? { scale: 1 } : {}} transition={{ duration: 0.4, delay: 0.3 + index * 0.2 }} className="w-5 h-5 rounded-full bg-[#0A1828] border-[3px] border-primary z-10 flex items-center justify-center shrink-0 mt-8">
+          <div className="w-2 h-2 rounded-full bg-primary" />
+        </motion.div>
+      </div>
+
+      {/* Card */}
+      <motion.div initial={{ opacity: 0, y: 30 }} animate={isInView ? { opacity: 1, y: 0 } : {}} transition={{ duration: 0.6, delay: 0.2 + index * 0.2 }}>
+        <Card edu={edu} />
+      </motion.div>
+    </div>
+  )
+}
+
+{/* Desktop: zigzag left-right */}
+function DesktopTimelineCard({ edu, index, isInView }) {
   const isLeft = edu.side === 'left'
   return (
-    <div className="relative grid grid-cols-[1fr_auto_1fr] items-start gap-4 md:gap-8">
+    <div className="relative grid grid-cols-[1fr_auto_1fr] items-start gap-8">
       {/* Left col */}
       <div>
         {isLeft ? (
@@ -37,16 +57,11 @@ function TimelineCard({ edu, index, isInView }) {
             <Card edu={edu} />
           </motion.div>
         ) : (
-          <div className="hidden md:block invisible"><Card edu={edu} /></div>
-        )}
-        {!isLeft && (
-          <motion.div initial={{ opacity: 0, x: 40 }} animate={isInView ? { opacity: 1, x: 0 } : {}} transition={{ duration: 0.6, delay: 0.2 + index * 0.2 }} className="md:hidden">
-            <Card edu={edu} />
-          </motion.div>
+          <div className="invisible"><Card edu={edu} /></div>
         )}
       </div>
 
-      {/* Center — just the dot, line is drawn by the parent */}
+      {/* Center dot */}
       <div className="flex justify-center pt-8 w-5">
         <motion.div initial={{ scale: 0 }} animate={isInView ? { scale: 1 } : {}} transition={{ duration: 0.4, delay: 0.3 + index * 0.2 }} className="w-5 h-5 rounded-full bg-[#0A1828] border-[3px] border-primary z-10 flex items-center justify-center shrink-0">
           <div className="w-2 h-2 rounded-full bg-primary" />
@@ -56,11 +71,11 @@ function TimelineCard({ edu, index, isInView }) {
       {/* Right col */}
       <div>
         {!isLeft ? (
-          <motion.div initial={{ opacity: 0, x: 40 }} animate={isInView ? { opacity: 1, x: 0 } : {}} transition={{ duration: 0.6, delay: 0.2 + index * 0.2 }} className="hidden md:block">
+          <motion.div initial={{ opacity: 0, x: 40 }} animate={isInView ? { opacity: 1, x: 0 } : {}} transition={{ duration: 0.6, delay: 0.2 + index * 0.2 }}>
             <Card edu={edu} />
           </motion.div>
         ) : (
-          <div className="hidden md:block invisible"><Card edu={edu} /></div>
+          <div className="invisible"><Card edu={edu} /></div>
         )}
       </div>
     </div>
@@ -81,14 +96,22 @@ export default function Education() {
           </h2>
         </motion.div>
 
-        {/* Timeline wrapper — one continuous line behind all cards */}
-        <div className="relative">
-          {/* Continuous vertical line running down the exact center */}
-          <div className="absolute left-1/2 -translate-x-1/2 top-0 bottom-0 w-0.5 bg-primary/20" />
+        {/* Mobile layout: spine on left, cards stacked on right */}
+        <div className="relative md:hidden">
+          <div className="absolute left-[10px] top-0 bottom-0 w-0.5 bg-primary/20" />
+          <div className="flex flex-col gap-6">
+            {education.map((edu, i) => (
+              <MobileTimelineCard key={edu.degree} edu={edu} index={i} isInView={isInView} />
+            ))}
+          </div>
+        </div>
 
+        {/* Desktop layout: zigzag with center spine */}
+        <div className="relative hidden md:block">
+          <div className="absolute left-1/2 -translate-x-1/2 top-0 bottom-0 w-0.5 bg-primary/20" />
           <div className="flex flex-col gap-8">
             {education.map((edu, i) => (
-              <TimelineCard key={edu.degree} edu={edu} index={i} isInView={isInView} />
+              <DesktopTimelineCard key={edu.degree} edu={edu} index={i} isInView={isInView} />
             ))}
           </div>
         </div>
