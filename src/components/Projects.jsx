@@ -25,7 +25,7 @@ function ProjectCard({ project, index, isInView }) {
         <img src={project.image} alt={project.title} className="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-700" />
         <div className="absolute inset-0 bg-gradient-to-t from-surface via-surface/30 to-transparent" />
         <div className="absolute inset-0 bg-primary/10 backdrop-blur-[2px] opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center gap-4">
-          <motion.a href={project.github} target="_blank" rel="noopener noreferrer" className="p-3 rounded-full bg-[#020617]/80 text-white hover:bg-primary transition-colors" whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.95 }} aria-label={`View ${project.title} on GitHub`}>
+          <motion.a href={project.github} target="_blank" rel="noopener noreferrer" className="p-3 rounded-full bg-[#0A1828]/80 text-white hover:bg-primary transition-colors" whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.95 }} aria-label={`View ${project.title} on GitHub`}>
             <FaGithub size={20} />
           </motion.a>
         </div>
@@ -54,7 +54,7 @@ export default function Projects() {
         <motion.div initial={{ opacity: 0, y: 40 }} animate={isInView ? { opacity: 1, y: 0 } : {}} transition={{ duration: 0.6 }} className="text-center mb-16">
           <p className="text-primary-light text-sm tracking-widest uppercase mb-4 font-medium">What I&apos;ve Built</p>
           <h2 className="text-3xl sm:text-4xl font-bold font-[family-name:var(--font-heading)]">
-            Featured <span className="bg-gradient-to-r from-primary-light to-accent bg-clip-text text-transparent">Projects</span>
+            Featured <span className="text-accent">Projects</span>
           </h2>
         </motion.div>
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">

@@ -29,14 +29,14 @@ export default function Navbar() {
       transition={{ duration: 0.6, ease: 'easeOut' }}
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         scrolled
-          ? 'bg-[#020617]/80 backdrop-blur-xl border-b border-white/5 shadow-lg shadow-black/20'
+          ? 'bg-[#0A1828]/80 backdrop-blur-xl border-b border-white/5 shadow-lg shadow-black/20'
           : 'bg-transparent'
       }`}
     >
       <div className="w-full max-w-6xl mx-auto px-8 sm:px-12 lg:px-16 py-5 flex items-center justify-between">
         <motion.a
           href="#hero"
-          className="text-xl font-bold font-[family-name:var(--font-heading)] bg-gradient-to-r from-primary-light to-accent bg-clip-text text-transparent"
+          className="text-xl font-bold font-[family-name:var(--font-heading)] text-accent"
           whileHover={{ scale: 1.05 }}
         >
           SB.
@@ -71,7 +71,7 @@ export default function Navbar() {
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: 'auto' }}
             exit={{ opacity: 0, height: 0 }}
-            className="md:hidden bg-[#020617]/95 backdrop-blur-xl border-b border-white/5"
+            className="md:hidden bg-[#0A1828]/95 backdrop-blur-xl border-b border-white/5"
           >
             <ul className="flex flex-col items-center gap-6 py-8">
               {navLinks.map((link, i) => (

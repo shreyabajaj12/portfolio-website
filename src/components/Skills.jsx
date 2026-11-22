@@ -21,7 +21,7 @@ export default function Skills() {
         <motion.div initial={{ opacity: 0, y: 40 }} animate={isInView ? { opacity: 1, y: 0 } : {}} transition={{ duration: 0.6 }} className="text-center mb-16">
           <p className="text-primary-light text-sm tracking-widest uppercase mb-4 font-medium">Tech Stack</p>
           <h2 className="text-3xl sm:text-4xl font-bold font-[family-name:var(--font-heading)]">
-            Skills & <span className="bg-gradient-to-r from-primary-light to-accent bg-clip-text text-transparent">Technologies</span>
+            Skills & <span className="text-accent">Technologies</span>
           </h2>
         </motion.div>
 

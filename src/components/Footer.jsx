@@ -4,7 +4,7 @@ import { SiLeetcode } from 'react-icons/si'
 const links = [
   { icon: <FaGithub size={16} />, href: 'https://github.com/shreyabajaj12', label: 'GitHub' },
   { icon: <FaLinkedinIn size={16} />, href: 'https://linkedin.com/in/shreyabajajsaw', label: 'LinkedIn' },
-  { icon: <SiLeetcode size={16} />, href: 'https://leetcode.com/u/shreyabajaj12', label: 'LeetCode' },
+  { icon: <SiLeetcode size={16} />, href: 'https://leetcode.com/u/shresaw0', label: 'LeetCode' },
 ]
 
 export default function Footer() {
@@ -16,7 +16,7 @@ export default function Footer() {
             <a key={link.label} href={link.href} target="_blank" rel="noopener noreferrer" aria-label={link.label} className="text-text-muted hover:text-primary-light transition-colors">{link.icon}</a>
           ))}
         </div>
-        <p className="text-text-muted text-sm">© {new Date().getFullYear()} <span className="text-text-secondary">Shreya Bajaj</span>. Built with React & Tailwind CSS.</p>
+        <p className="text-text-muted text-sm">Shipped from my terminal 🚀 by <span className="text-text-secondary">Shreya Bajaj</span></p>
       </div>
     </footer>
   )

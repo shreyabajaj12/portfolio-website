@@ -18,7 +18,7 @@ export default function About() {
         <motion.div initial={{ opacity: 0, y: 40 }} animate={isInView ? { opacity: 1, y: 0 } : {}} transition={{ duration: 0.6 }} className="text-center mb-12">
           <h1 className="text-primary-light tracking-widest uppercase mb-4 text-md">About Me</h1>
           <h2 className="text-3xl sm:text-4xl font-bold font-[family-name:var(--font-heading)]">
-            A Bit About <span className="bg-gradient-to-r from-primary-light to-accent bg-clip-text text-transparent">Who I Am</span>
+            A Bit About <span className="text-accent">Who I Am</span>
           </h2>
         </motion.div>
 

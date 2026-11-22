@@ -4,27 +4,22 @@
   --font-sans: 'Inter', system-ui, sans-serif;
   --font-heading: 'Space Grotesk', system-ui, sans-serif;
 
-  --color-primary: #6366f1;
-  --color-primary-light: #818cf8;
-  --color-primary-dark: #4f46e5;
-  --color-accent: #06b6d4;
-  --color-accent-light: #22d3ee;
-  --color-surface: #0f172a;
-  --color-surface-light: #1e293b;
-  --color-surface-lighter: #334155;
-  --color-text-primary: #f1f5f9;
-  --color-text-secondary: #94a3b8;
-  --color-text-muted: #64748b;
-  --color-border: #1e293b;
-  --color-gradient-start: #6366f1;
-  --color-gradient-end: #06b6d4;
+  /* Dark classic blue / turquoise / gold palette */
+  --color-primary: #178582;
+  --color-primary-light: #1fa8a4;
+  --color-primary-dark: #126b69;
+  --color-accent: #BFA181;
+  --color-accent-light: #d4ba9a;
+  --color-surface: #0e1f33;
+  --color-surface-light: #142a40;
+  --color-surface-lighter: #1d3a54;
+  --color-text-primary: #eef2f6;
+  --color-text-secondary: #9bafc4;
+  --color-text-muted: #5e7a94;
+  --color-border: #1a3045;
+  --color-gradient-start: #178582;
+  --color-gradient-end: #BFA181;
 }
-
-/* * {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-} */
 
 html {
   scroll-behavior: smooth;
@@ -33,13 +28,13 @@ html {
 
 body {
   font-family: var(--font-sans);
-  background-color: #020617;
+  background-color: #0A1828;
   color: var(--color-text-primary);
   overflow-x: hidden;
 }
 
 ::selection {
-  background: rgba(99, 102, 241, 0.3);
+  background: rgba(23, 133, 130, 0.35);
   color: #fff;
 }
 
@@ -48,7 +43,7 @@ body {
 }
 
 ::-webkit-scrollbar-track {
-  background: #020617;
+  background: #0A1828;
 }
 
 ::-webkit-scrollbar-thumb {

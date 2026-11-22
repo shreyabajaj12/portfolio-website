@@ -4,8 +4,8 @@ import { HiAcademicCap } from 'react-icons/hi'
 
 const education = [
   { degree: 'B.Tech in Computer Science', school: 'Lovely Professional University', period: 'Aug 2023 – July 2027', grade: 'CGPA: 8.73 / 10.0', highlights: ["Dean's List — Top 10% of class", 'Focus on Data Structures, Algorithms & Software Engineering'], side: 'left' },
-  { degree: 'Higher Secondary (PCM)', school: 'Notre Dame Academy', period: '2020 – 2022', grade: 'Percentage: 89.8%', highlights: [], side: 'right' },
-  { degree: 'Secondary', school: 'Notre Dame Academy', period: '2019 – 2020', grade: 'Percentage: 90.2%', highlights: [], side: 'left' },
+  { degree: 'Higher Secondary - XII (PCM)', school: 'Notre Dame Academy', period: '2020 – 2022', grade: 'Percentage: 89.8%', highlights: [], side: 'right' },
+  { degree: 'Secondary - X', school: 'Notre Dame Academy', period: '2019 – 2020', grade: 'Percentage: 90.2%', highlights: [], side: 'left' },
 ]
 
 function Card({ edu }) {
@@ -48,7 +48,7 @@ function TimelineCard({ edu, index, isInView }) {
 
       {/* Center — just the dot, line is drawn by the parent */}
       <div className="flex justify-center pt-8 w-5">
-        <motion.div initial={{ scale: 0 }} animate={isInView ? { scale: 1 } : {}} transition={{ duration: 0.4, delay: 0.3 + index * 0.2 }} className="w-5 h-5 rounded-full bg-[#020617] border-[3px] border-primary z-10 flex items-center justify-center shrink-0">
+        <motion.div initial={{ scale: 0 }} animate={isInView ? { scale: 1 } : {}} transition={{ duration: 0.4, delay: 0.3 + index * 0.2 }} className="w-5 h-5 rounded-full bg-[#0A1828] border-[3px] border-primary z-10 flex items-center justify-center shrink-0">
           <div className="w-2 h-2 rounded-full bg-primary" />
         </motion.div>
       </div>
@@ -77,7 +77,7 @@ export default function Education() {
         <motion.div initial={{ opacity: 0, y: 40 }} animate={isInView ? { opacity: 1, y: 0 } : {}} transition={{ duration: 0.6 }} className="text-center mb-12">
           <p className="text-primary-light text-sm tracking-widest uppercase mb-4 font-medium">Academic Journey</p>
           <h2 className="text-3xl sm:text-4xl font-bold font-[family-name:var(--font-heading)]">
-            My <span className="bg-gradient-to-r from-primary-light to-accent bg-clip-text text-transparent">Education</span>
+            My <span className="text-accent">Education</span>
           </h2>
         </motion.div>
 

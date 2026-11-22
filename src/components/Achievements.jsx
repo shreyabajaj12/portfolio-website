@@ -16,6 +16,7 @@ const achievements = [
     textColor: 'text-yellow-400',
     certificate: flipkartImg,
     certLabel: 'Flipkart GRID 8.0 Certificate',
+    certLink: 'https://drive.google.com/file/d/1G56wH_FcZTF7_wPUtGSS3kf4UJJgzdjJ/view?usp=sharing',
   },
   {
     title: 'LeetCode — 1000+ Problems Solved',
@@ -25,7 +26,7 @@ const achievements = [
     color: 'from-orange-500/20 to-amber-500/20',
     borderColor: 'border-orange-500/20 hover:border-orange-500/40',
     textColor: 'text-orange-400',
-    link: 'https://leetcode.com/u/shreyabajaj12',
+    link: 'https://leetcode.com/u/shresaw0',
   },
   {
     title: 'Hacktoberfest 2024 Contributor',
@@ -93,7 +94,7 @@ export default function Achievements() {
           <motion.div initial={{ opacity: 0, y: 40 }} animate={isInView ? { opacity: 1, y: 0 } : {}} transition={{ duration: 0.6 }} className="text-center mb-12">
             <p className="text-primary-light text-sm tracking-widest uppercase mb-4 font-medium">Recognition</p>
             <h2 className="text-3xl sm:text-4xl font-bold font-[family-name:var(--font-heading)]">
-              Achievements & <span className="bg-gradient-to-r from-primary-light to-accent bg-clip-text text-transparent">Awards</span>
+              Achievements & <span className="text-accent">Awards</span>
             </h2>
           </motion.div>
 
@@ -105,10 +106,10 @@ export default function Achievements() {
                   {/* Icon — clickable if certificate exists */}
                   <div
                     className={`w-14 h-14 rounded-xl bg-gradient-to-br ${item.color} flex items-center justify-center ${item.textColor} mb-5 ${item.certificate ? 'cursor-pointer hover:scale-110 transition-transform duration-300' : ''}`}
-                    onClick={() => item.certificate && setLightbox({ image: item.certificate, label: item.certLabel })}
+                    onClick={() => item.certificate && (item.certLink ? window.open(item.certLink, '_blank') : setLightbox({ image: item.certificate, label: item.certLabel }))}
                     role={item.certificate ? 'button' : undefined}
                     tabIndex={item.certificate ? 0 : undefined}
-                    onKeyDown={(e) => item.certificate && e.key === 'Enter' && setLightbox({ image: item.certificate, label: item.certLabel })}
+                    onKeyDown={(e) => item.certificate && e.key === 'Enter' && (item.certLink ? window.open(item.certLink, '_blank') : setLightbox({ image: item.certificate, label: item.certLabel }))}
                     aria-label={item.certificate ? `View ${item.certLabel}` : undefined}
                   >
                     {item.icon}
@@ -121,12 +122,23 @@ export default function Achievements() {
                   <p className="text-text-secondary text-sm leading-relaxed">{item.description}</p>
 
                   {item.certificate && (
-                    <button
-                      onClick={() => setLightbox({ image: item.certificate, label: item.certLabel })}
-                      className="mt-4 text-xs text-text-muted hover:text-primary-light transition-colors underline underline-offset-2"
-                    >
-                      View Certificate
-                    </button>
+                    item.certLink ? (
+                      <a
+                        href={item.certLink}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="mt-4 text-xs text-text-muted hover:text-primary-light transition-colors underline underline-offset-2"
+                      >
+                        View Certificate
+                      </a>
+                    ) : (
+                      <button
+                        onClick={() => setLightbox({ image: item.certificate, label: item.certLabel })}
+                        className="mt-4 text-xs text-text-muted hover:text-primary-light transition-colors underline underline-offset-2"
+                      >
+                        View Certificate
+                      </button>
+                    )
                   )}
                 </div>
               </motion.div>
